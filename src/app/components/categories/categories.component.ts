@@ -15,7 +15,7 @@ export class CategoriesComponent{
 		this.categoriesService.getCategoriesData()
 		.subscribe( (data) => {
 			this.categoryList = data;
-			////console.log(data);
+			console.log(data);
 		},
 		err => {
 			console.log("Error from Server : ",err);

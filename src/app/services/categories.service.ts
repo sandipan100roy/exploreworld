@@ -10,6 +10,7 @@ export class CategoriesService{
 	}
 
 	getCategoriesData(){
+		//console.log("Frm");
 		return this.http.get('https://exploreworld-2711e.firebaseio.com/.json');
 	}
 }
