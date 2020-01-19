@@ -11,7 +11,7 @@ import { CategoriesService } from '../../../services/categories.service';
 export class CategoryDetailsComponent implements OnInit {
   
   categorySelected;
-  categoryList;
+  categoryList = " ";
   categoryId;
   constructor(private activatedRoute : ActivatedRoute, 
   	private categoriesService : CategoriesService) { }
@@ -28,7 +28,7 @@ export class CategoryDetailsComponent implements OnInit {
     err =>{
       console.log("Error from Server : ",err);
     });
-    
+
   }
 
 }
