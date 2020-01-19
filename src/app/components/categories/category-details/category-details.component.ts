@@ -12,12 +12,15 @@ export class CategoryDetailsComponent implements OnInit {
   
   categorySelected;
   categoryList;
+  categoryId;
   constructor(private activatedRoute : ActivatedRoute, 
   	private categoriesService : CategoriesService) { }
 
   ngOnInit() {
   	this.categorySelected = this.activatedRoute.snapshot.params['category'];
-  	this.categoriesService.getCategoryListDate(this.categorySelected)
+    this.categoryId = this.activatedRoute.snapshot.params['cid'];
+
+  	this.categoriesService.getCategoryListDate(this.categoryId)
   	.subscribe((data) => {
   		//console.log(data);
       this.categoryList = data;
@@ -25,6 +28,7 @@ export class CategoryDetailsComponent implements OnInit {
     err =>{
       console.log("Error from Server : ",err);
     });
+    
   }
 
 }

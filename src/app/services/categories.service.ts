@@ -23,10 +23,10 @@ export class CategoriesService{
 			map(responseData => {
 				if(Array.isArray(responseData)){
 					filteredresponseData = responseData.filter(
-						data => data.cid == 4
+						data => data.cid == id
 					);
 				}
-				console.log(filteredresponseData);
+				//console.log(filteredresponseData);
 				return filteredresponseData[0].categorylist;
 			},
           		error => error)

@@ -10,7 +10,7 @@ const routes: Routes = [
 		path :'', component : CategoriesComponent
 	},
 	{
-		path :'explore/:category', component : CategoryDetailsComponent
+		path :'explore/:category/:cid', component : CategoryDetailsComponent
 	}
 ];
 

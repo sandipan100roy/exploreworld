@@ -14,12 +14,20 @@
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <div class="row">
+                        <div class="row" *ngIf="categoryList">
                             <div class="col-sm-3" *ngFor="let category of categoryList">
                             	<a routerLink="explore/{{category.imagename}}"><img src="https://firebasestorage.googleapis.com/v0/b/exploreworld-2711e.appspot.com/o/categories%2F{{category.imagename}}.jpg?alt=media" alt="Image" class="img-responsive"></a>
 								<h4>{{category.placename}}</h4>
 								<h4>{{category.price}}</h4>
 								<br>
+                            </div>
+                            
+                        </div>
+
+                        <div class="row" *ngIf="!categoryList">
+                            <div class="col-sm-3">
+                         		<h4>No Data...</h4>
+								
                             </div>
                             
                         </div>
