@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoriesService } from './services/categories.service';
 import { CategoryDetailsComponent } from './components/categories/category-details/category-details.component';
+import { PlaceDetailsComponent } from './components/categories/category-details/place-details/place-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    PlaceDetailsComponent
   ],
   imports: [
     BrowserModule,

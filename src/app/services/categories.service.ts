@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 
 export class CategoriesService{
-
+	filteredresponseData;
 	constructor(private http : HttpClient){
 
 	}
@@ -16,18 +16,18 @@ export class CategoriesService{
 		return this.http.get('https://exploreworld-2711e.firebaseio.com/.json');
 	}
 
-	getCategoryListDate(id){
-		let filteredresponseData;
+	getCategoryListData(cid){
+		
 		return this.http.get('https://exploreworld-2711e.firebaseio.com/.json').pipe(
 			//filter(responseData => responseData == id),
 			map(responseData => {
 				if(Array.isArray(responseData)){
-					filteredresponseData = responseData.filter(
-						data => data.cid == id
+					this.filteredresponseData = responseData.filter(
+						data => data.cid == cid
 					);
 				}
 				//console.log(filteredresponseData);
-				return filteredresponseData[0].categorylist;
+				return this.filteredresponseData[0].categorylist;
 			},
           		error => error)
 		);

@@ -11,7 +11,7 @@ import { CategoriesService } from '../../../services/categories.service';
 export class CategoryDetailsComponent implements OnInit {
   
   categorySelected;
-  categoryList = " ";
+  categoryDetailsList;
   categoryId;
   constructor(private activatedRoute : ActivatedRoute, 
   	private categoriesService : CategoriesService) { }
@@ -20,10 +20,10 @@ export class CategoryDetailsComponent implements OnInit {
   	this.categorySelected = this.activatedRoute.snapshot.params['category'];
     this.categoryId = this.activatedRoute.snapshot.params['cid'];
 
-  	this.categoriesService.getCategoryListDate(this.categoryId)
+  	this.categoriesService.getCategoryListData(this.categoryId)
   	.subscribe((data) => {
-  		//console.log(data);
-      this.categoryList = data;
+  		console.log(data);
+      this.categoryDetailsList = data;
   	},
     err =>{
       console.log("Error from Server : ",err);
