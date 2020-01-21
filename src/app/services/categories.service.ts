@@ -2,11 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
+//import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 
 export class CategoriesService{
 	filteredresponseData;
+	//private subject = new Subject<any>();
+	private behaviorsubject = new BehaviorSubject<any>(null);
+
 	constructor(private http : HttpClient){
 
 	}
@@ -27,9 +32,20 @@ export class CategoriesService{
 					);
 				}
 				//console.log(filteredresponseData);
+				
 				return this.filteredresponseData[0].categorylist;
 			},
           		error => error)
 		);
+	}
+
+	setselectedCategoryListData(selectedplaceId){
+		var selectedfilteredresponseData = this.filteredresponseData[0].categorylist.filter(
+				data => data.clid == selectedplaceId
+		);
+		this.behaviorsubject.next(selectedfilteredresponseData);
+	}
+	getselectedCategoryListData(): Observable<any>{
+		return this.behaviorsubject.asObservable();
 	}
 }

@@ -22,13 +22,17 @@ export class CategoryDetailsComponent implements OnInit {
 
   	this.categoriesService.getCategoryListData(this.categoryId)
   	.subscribe((data) => {
-  		console.log(data);
+  		//.log(data);
       this.categoryDetailsList = data;
   	},
     err =>{
       console.log("Error from Server : ",err);
     });
 
+  }
+
+  showPlaceDetails(clid){
+    this.categoriesService.setselectedCategoryListData(clid);
   }
 
 }

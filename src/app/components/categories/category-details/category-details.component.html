@@ -16,10 +16,7 @@
                     <div class="item active">
                         <div class="row" *ngIf="categoryDetailsList">
                             <div class="col-sm-3" *ngFor="let category of categoryDetailsList">
-                            	<a routerLink="{{category.clid}}"><img src="https://firebasestorage.googleapis.com/v0/b/exploreworld-2711e.appspot.com/o/categories%2F{{category.imagename}}.jpg?alt=media" alt="Image" class="img-responsive"></a>
-								<h4>{{category.placename}}</h4>
-								<h4>{{category.price}}</h4>
-								<br>
+                            	<a routerLink="{{category.clid}}"><img src="https://firebasestorage.googleapis.com/v0/b/exploreworld-2711e.appspot.com/o/categories%2F{{category.imagename}}.jpg?alt=media" alt="Image" class="img-responsive" (click)="showPlaceDetails(category.clid)"></a>
                             </div>
                             
                         </div>

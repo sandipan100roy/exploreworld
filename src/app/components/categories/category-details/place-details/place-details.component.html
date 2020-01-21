@@ -1,1 +1,11 @@
-<p> Hello </p>
+
+<div class="panel-group">
+		<div class="panel panel-info">
+	      <div class="panel-heading">{{placeSelected.placename}} Details</div>
+	      <div class="panel-body">District : <b>{{placeSelected.district}}</b></div>
+	      <div class="panel-body">State : <b>{{placeSelected.state}}</b></div>
+	      <div class="panel-body">Country : <b>{{placeSelected.country}}</b></div>
+	      <div class="panel-body">Price : <b>{{placeSelected.price | currency: "&#8377;"}}</b></div>
+	      <div class="panel-body">Rating : <b>{{placeSelected.rating[0]}}</b></div>
+	    </div>
+</div>
